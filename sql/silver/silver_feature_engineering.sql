@@ -34,7 +34,7 @@ WITH base AS (
                 COS(RADIANS("Drop_Longitude") - RADIANS("Store_Longitude")) +
                 SIN(RADIANS("Store_Latitude")) * SIN(RADIANS("Drop_Latitude"))
             )
-        )::NUMERIC(10,3) AS delivery_distance_km,
+        )::NUMERIC(10,3) AS raw_delivery_distance_km,
 
         CASE
             WHEN "Delivery_Time" > 30 THEN TRUE
@@ -43,6 +43,16 @@ WITH base AS (
 
     FROM bronze.raw_delivery_data
     WHERE "Order_ID" IS NOT NULL
+),
+
+cleaned AS (
+    SELECT
+        *,
+        CASE
+            WHEN raw_delivery_distance_km > 25 THEN NULL
+            ELSE raw_delivery_distance_km
+        END AS delivery_distance_km
+    FROM base
 )
 
 INSERT INTO silver.delivery_cleaned (
@@ -102,16 +112,19 @@ SELECT
         WHEN pickup_time >= order_time
             THEN EXTRACT(EPOCH FROM (pickup_time - order_time)) / 60
         ELSE
-            EXTRACT(EPOCH FROM ((pickup_time + INTERVAL '24 hours') - order_time)) / 60
+            EXTRACT(EPOCH FROM (
+                (pickup_time::INTERVAL + INTERVAL '24 hours') - order_time::INTERVAL
+            )) / 60
     END::INTEGER AS pickup_prep_minutes,
 
     delivery_distance_km,
 
     CASE
+        WHEN delivery_distance_km IS NULL THEN NULL
         WHEN delivery_time_minutes > 0
             THEN ROUND(((delivery_distance_km * 60.0) / delivery_time_minutes)::NUMERIC, 3)
         ELSE NULL
     END AS delivery_speed_kmh,
 
     is_delayed
-FROM base;
+FROM cleaned;
