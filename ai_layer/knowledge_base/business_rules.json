@@ -1,0 +1,26 @@
+[
+  {
+    "id": "rule_vehicle_analysis",
+    "category": "business_rule",
+    "title": "Vehicle Performance Analysis",
+    "content": "Vehicle-level delivery analysis should compare average delivery time, delivery speed, and delay rate across different vehicle types."
+  },
+  {
+    "id": "rule_outlier_detection",
+    "category": "business_rule",
+    "title": "Outlier Detection",
+    "content": "If average and median delivery times are close, the dataset likely contains fewer extreme outliers."
+  },
+  {
+    "id": "rule_delay_analysis",
+    "category": "business_rule",
+    "title": "Delay Analysis",
+    "content": "A high delay rate may indicate operational inefficiencies, traffic issues, or high delivery demand."
+  },
+  {
+    "id": "rule_peak_hour_analysis",
+    "category": "business_rule",
+    "title": "Peak Hour Analysis",
+    "content": "Order volume and delivery performance should be analyzed across different order hours to identify peak demand periods."
+  }
+]

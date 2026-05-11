@@ -1,0 +1,26 @@
+[
+  {
+    "id": "kpi_average_delivery_time",
+    "category": "kpi_definition",
+    "title": "Average Delivery Time",
+    "content": "Average delivery time measures the average time required to complete a delivery. It is calculated using fact_deliveries.delivery_time_minutes."
+  },
+  {
+    "id": "kpi_delay_rate",
+    "category": "kpi_definition",
+    "title": "Delay Rate",
+    "content": "Delay rate measures the percentage of deliveries marked as delayed. A delivery is considered delayed when is_delayed is TRUE."
+  },
+  {
+    "id": "kpi_delivery_speed",
+    "category": "kpi_definition",
+    "title": "Average Delivery Speed",
+    "content": "Average delivery speed measures the average delivery speed in kilometers per hour. It is calculated using fact_deliveries.delivery_speed_kmh."
+  },
+  {
+    "id": "kpi_pickup_prep_time",
+    "category": "kpi_definition",
+    "title": "Pickup Preparation Time",
+    "content": "Pickup preparation time measures the time between order placement and pickup. It is calculated using fact_deliveries.pickup_prep_minutes."
+  }
+]

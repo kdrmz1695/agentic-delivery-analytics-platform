@@ -1,0 +1,50 @@
+[
+  {
+    "id": "fact_deliveries",
+    "category": "data_catalog",
+    "title": "fact_deliveries table",
+    "content": "The fact_deliveries table is the central fact table of the gold layer. It contains one row per delivery and stores delivery metrics such as delivery_time_minutes, pickup_prep_minutes, delivery_distance_km, delivery_speed_kmh, and is_delayed. It also contains foreign keys to dimension tables such as date_id, vehicle_id, weather_id, traffic_id, area_id, category_id, and agent_id."
+  },
+  {
+    "id": "dim_vehicle",
+    "category": "data_catalog",
+    "title": "dim_vehicle table",
+    "content": "The dim_vehicle table describes the vehicle type used for each delivery. It contains vehicle_id and vehicle. For vehicle-level analysis, join fact_deliveries.vehicle_id to dim_vehicle.vehicle_id."
+  },
+  {
+    "id": "dim_weather",
+    "category": "data_catalog",
+    "title": "dim_weather table",
+    "content": "The dim_weather table describes the weather condition during the delivery. It contains weather_id and weather. For weather-level analysis, join fact_deliveries.weather_id to dim_weather.weather_id."
+  },
+  {
+    "id": "dim_traffic",
+    "category": "data_catalog",
+    "title": "dim_traffic table",
+    "content": "The dim_traffic table describes the traffic condition during the delivery. It contains traffic_id and traffic. For traffic-level analysis, join fact_deliveries.traffic_id to dim_traffic.traffic_id."
+  },
+  {
+    "id": "dim_date",
+    "category": "data_catalog",
+    "title": "dim_date table",
+    "content": "The dim_date table describes the order date. It contains date_id, order_date, order_weekday, and is_weekend. For date, weekday, or weekend analysis, join fact_deliveries.date_id to dim_date.date_id."
+  },
+  {
+    "id": "dim_area",
+    "category": "data_catalog",
+    "title": "dim_area table",
+    "content": "The dim_area table describes the delivery area. It contains area_id and area. For area-level analysis, join fact_deliveries.area_id to dim_area.area_id."
+  },
+  {
+    "id": "dim_category",
+    "category": "data_catalog",
+    "title": "dim_category table",
+    "content": "The dim_category table describes the product or delivery category. It contains category_id and category. For category-level analysis, join fact_deliveries.category_id to dim_category.category_id."
+  },
+  {
+    "id": "dim_agent",
+    "category": "data_catalog",
+    "title": "dim_agent table",
+    "content": "The dim_agent table describes delivery agent attributes. It contains agent_id, agent_age, and agent_rating. For agent-level analysis, join fact_deliveries.agent_id to dim_agent.agent_id."
+  }
+]
