@@ -28,8 +28,9 @@ The system enables users to ask natural language business questions and receive:
 - Interactive visualizations
 - Retrieved business knowledge context
 
----
+## Project Documentation
 
+- [Open Full Project Workspace in Notion](https://www.notion.so/agentic-delivery-analytics-platform-342d6289335080f0b649fb20d1a9d894?source=copy_link)
 # End-to-End Architecture
 
 ![Architecture](docs/end_to_end_architecture_diagram.png)
