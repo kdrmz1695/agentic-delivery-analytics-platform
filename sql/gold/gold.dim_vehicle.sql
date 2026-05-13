@@ -1,9 +1,9 @@
-CREATE TABLE gold.dim_category AS
+CREATE TABLE gold.dim_vehicle AS
 SELECT
-	ROW_NUMBER() OVER (ORDER BY category) AS category_id, category
-	FROM(
-		SELECT DISTINCT category FROM silver.delivery_cleaned
-		WHERE category IS NOT NULL
-		AND TRIM(category) <> ''
-		AND UPPER(TRIM(category)) <> 'NAN'
-	) t;
+    ROW_NUMBER() OVER (ORDER BY vehicle) AS vehicle_id,
+    vehicle
+FROM (
+    SELECT DISTINCT vehicle
+    FROM silver.delivery_cleaned
+    WHERE vehicle IS NOT NULL
+) t;

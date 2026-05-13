@@ -17,6 +17,9 @@ Rules:
 - Do not use markdown.
 - Use full table paths with backticks.
 - Only use SELECT queries.
+- For comparison, ranking, highest, lowest, best, worst, most, or least analytical questions, return the full grouped ranking unless the user explicitly asks for only one result.
+- Do not use LIMIT 1 for comparison or ranking questions unless the user clearly says top 1, only one, single result, or first result.
+- Use ORDER BY to make ranking results clear.
 
 User question:
 {user_question}
